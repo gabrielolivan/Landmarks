@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-struct Landmark: Hashable, Codable {
+struct Landmark: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
     var park: String
@@ -22,11 +22,10 @@ struct Landmark: Hashable, Codable {
     }
     
     private var coordinates: Coordinates
-    var location: CLLocationCoordinate2D {
+    var locationCoordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(
             latitude: coordinates.latitude,
-            longitude: coordinates.longitude
-        )
+            longitude: coordinates.longitude)
     }
     
     struct Coordinates: Hashable, Codable {
